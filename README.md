@@ -1,17 +1,22 @@
-# SponsoredGone 1.0
+<p align="center">
+  <img src="icons/icon256.png" alt="SponsoredGone Logo" width="140">
+</p>
 
-A tiny Chrome/Chromium extension that makes Google Search look as though sponsored results were not present.
+<h1 align="center">SponsoredGone</h1>
 
-## What changed in 2.0
+<p align="center">
+  <strong>Google Search without the sponsored clutter.</strong>
+</p>
 
-- Rebuilt for **Manifest V3**.
-- Runs at **`document_start`** so known Google ad containers are hidden before normal page rendering.
-- Handles current Google ad containers (`#tads`, `#tadsb`, `#bottomads`, `data-text-ad`, `data-is-ad`).
-- Adds a conservative label-based fallback for Google's newer grouped **Sponsored results** / **Sponsored products** layouts.
-- Uses a `MutationObserver`, so ads inserted after the initial page load are removed too.
-- Does not force hidden elements back to `display:block`; turning the extension OFF restores Google's own layout.
-- One-click toolbar control. The badge shows **ON** or **OFF**.
-- No analytics, no tracking, no external requests.
+<p align="center">
+  Lightweight • Private • One-click ON/OFF
+</p>
+
+---
+
+## SponsoredGone 1.0
+
+A tiny Chrome/Chromium extension that makes Google Search look as though sponsored results were never there.
 
 ## Install locally
 
@@ -22,18 +27,97 @@ A tiny Chrome/Chromium extension that makes Google Search look as though sponsor
 5. Select the folder containing `manifest.json`.
 6. Pin **SponsoredGone** if you want the one-click ON/OFF control visible.
 
-The extension starts **ON** by default. Click its toolbar icon once to switch it OFF; click again to switch it ON.
+The extension starts **ON** by default.
+
+Click its toolbar icon once to switch it OFF.
+
+Click again to switch it ON.
+
+## How it works
+
+SponsoredGone runs directly on supported Google Search pages and hides sponsored-result sections from the rendered page.
+
+It currently handles known Google advertising containers such as:
+
+- `#tads`
+- `#tadsb`
+- `#bottomads`
+- `[data-text-ad]`
+- `[data-is-ad]`
+
+It also includes fallback detection for grouped sponsored-result sections and dynamically inserted results.
+
+A `MutationObserver` keeps watching the page so sponsored results added after the initial page load can also be removed.
 
 ## Scope
 
-Google announced that country-specific Search domains are being redirected to `google.com`, so the extension primarily targets `google.com`. `google.az` is also included as a compatibility fallback.
+SponsoredGone primarily targets:
 
-This is a cosmetic search-results cleaner, not a network-level ad blocker. Sponsored entries may still be delivered by Google in the page data; the extension removes them from the rendered results.
+`google.com`
+
+The extension is designed for Google Search users across different countries.
+
+This is a cosmetic search-results cleaner, not a network-level ad blocker.
+
+Sponsored entries may still be delivered by Google as part of the page data. SponsoredGone removes supported sponsored content from the rendered search interface.
 
 ## Privacy
 
-The only saved value is the ON/OFF setting in `chrome.storage.sync`. Nothing is sent to the developer or to any third-party service.
+SponsoredGone does not collect:
 
-## License / attribution
+- Search queries
+- Browsing history
+- Personal information
+- Analytics
+- Advertising identifiers
+- Usage statistics
 
-Based on the MIT-licensed **SponsoredGone** project by dumbRoss. See `LICENSE`.
+The only saved value is the ON/OFF state stored using:
+
+`chrome.storage.sync`
+
+Nothing is sent to the developer or to any third-party service.
+
+## Permissions
+
+SponsoredGone only requests the permissions required to:
+
+- Run on supported Google pages
+- Remember the ON/OFF setting
+- Inject the cleaner into already-open Google tabs
+- Update the toolbar state
+
+## Open Source
+
+SponsoredGone is open source.
+
+You are free to:
+
+- Use it
+- Modify it
+- Fork it
+- Distribute it
+- Improve it
+
+subject to the terms of the MIT License.
+
+## Developer
+
+**Ziraddin**
+
+Creator and maintainer of SponsoredGone.
+
+## License
+
+MIT License.
+
+Copyright (c) 2026 Ziraddin
+
+See `LICENSE` for the full license text.
+
+---
+
+<p align="center">
+  <strong>SponsoredGone</strong><br>
+  Google Search without the sponsored clutter.
+</p>
